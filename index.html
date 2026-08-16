@@ -1,119 +1,143 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ALIBODAMA | دنیای تکنولوژی به زبان ساده</title>
-    
-    <!-- SEO و ساختارمند -->
-    <meta name="description" content="آموزش‌های کاربردی، پروژه‌های واقعی و ابزارهای رایگان تکنولوژی">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "Alibodama",
-        "description": "دنیای تکنولوژی به زبان ساده"
-    }
-    </script>
 
-    <!-- کتابخانه‌ها -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    
-    <!-- فاوآیکون -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <!-- سئو -->
+    <meta name="description" content="آموزش‌های تکنولوژی، برنامه‌نویسی و هوش مصنوعی با علی بوداما" />
+    <link rel="canonical" href="https://alibodama.github.io/alibodama-site" />
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+
+    <!-- انیمیشن -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
+        /* ===== تم سفید حرفه‌ای ===== */
         :root {
-            --primary: #6C63FF;
-            --secondary: #FF6584;
-            --dark: #1a1a2e;
-            --darker: #0f0f1a;
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --secondary: #7c3aed;
+            --gray-100: #f8fafc;
+            --gray-200: #e2e8f0;
+            --gray-600: #64748b;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--dark);
-            color: #fff;
-            overflow-x: hidden;
+            background: #ffffff;
+            color: var(--gray-900);
+            scroll-behavior: smooth;
         }
 
-        /* هدر تایپوگرافی */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
-            position: relative;
-            overflow: hidden;
+        /* ===== هدر با اسم بزرگ ===== */
+        .site-header {
+            background: linear-gradient(135deg, #ffffff 0%, var(--gray-100) 100%);
+            padding: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(108, 99, 255, 0.1) 0%, transparent 50%);
-            animation: pulseGlow 8s ease-in-out infinite;
+        .brand-name {
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
+        .brand-name:hover {
+            transform: scale(1.03);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .brand-sub {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            letter-spacing: 1px;
         }
 
-        .typed-cursor {
-            font-size: 2.5rem;
-            opacity: 1;
-            animation: blink 0.7s infinite;
+        /* ===== بخش قهرمان (Hero) ===== */
+        .hero-section {
+            padding: 4rem 0;
+            background: linear-gradient(180deg, #ffffff 0%, var(--gray-100) 100%);
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .main-title {
-            font-size: 3.5rem;
+        .hero-title {
+            font-size: 3.2rem;
             font-weight: 800;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--gray-900);
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .card-hover {
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 0.8rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #fff;
             transition: all 0.3s ease;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.3);
-            border-color: var(--primary);
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+            color: #fff;
         }
 
+        .btn-outline-custom {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            background: transparent;
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ===== کارت‌های آموزش ===== */
         .section-title {
             font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
+            font-weight: 800;
+            color: var(--gray-900);
             position: relative;
             display: inline-block;
         }
@@ -124,394 +148,409 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
+            width: 70px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
+            border-radius: 4px;
         }
 
-        .tool-badge {
-            background: rgba(108, 99, 255, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid rgba(108, 99, 255, 0.3);
-            transition: all 0.3s ease;
+        .edu-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s ease;
+            border: 1px solid var(--gray-200);
+            height: 100%;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--gray-900);
+            display: block;
         }
 
-        .tool-badge:hover {
-            background: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .search-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            width: 100%;
-            max-width: 400px;
-            transition: all 0.3s ease;
-        }
-
-        .search-box:focus {
-            outline: none;
+        .edu-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+            text-decoration: none;
+            color: var(--gray-900);
         }
 
-        .footer {
-            background: var(--darker);
-            padding: 3rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        .edu-card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
         }
 
-        /* فرم تماس */
-        .contact-form input,
-        .contact-form textarea {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .edu-card h5 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        .edu-card .badge-youtube {
+            background: #ff0000;
             color: #fff;
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
+            padding: 0.25rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-top: 0.5rem;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary);
-            box-shadow: none;
-        }
-
-        .btn-gradient {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        /* ===== دکمه برگشت به بالا ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
             border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
             transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            z-index: 999;
+            cursor: pointer;
         }
 
-        .btn-gradient:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
-        /* پاسخگو برای موبایل */
+        .back-to-top:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.5);
+        }
+
+        /* ===== فوتر ===== */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #fff;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0 4px;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-4px);
+            color: #fff;
+        }
+
+        /* ===== واکنش‌گرایی ===== */
         @media (max-width: 768px) {
-            .main-title {
+            .brand-name {
+                font-size: 2.8rem;
+            }
+            .hero-title {
                 font-size: 2.2rem;
             }
-            .hero {
-                min-height: 80vh;
+            .site-header {
+                padding: 1rem 0;
+            }
+            .back-to-top {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .brand-name {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- هدر اصلی با تایپوگرافی -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div data-aos="fade-up" data-aos-duration="1000">
-                        <span class="badge bg-primary bg-opacity-25 text-light px-4 py-2 rounded-pill mb-4">
-                            <i class="bi bi-rocket-takeoff me-2"></i>نسخه ۲.۰
-                        </span>
+    <!-- ===== دکمه برگشت به بالا ===== -->
+    <button class="back-to-top" id="backToTop" aria-label="بازگشت به بالا">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- ===== هدر با اسم بزرگ ===== -->
+    <header class="site-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <a href="#" class="brand-name" id="brandLink">ALIBODAMA</a>
+                    <div class="brand-sub">
+                        <i class="bi bi-dot"></i> دنیای تکنولوژی به زبان ساده
                     </div>
-                    
-                    <div data-aos="fade-up" data-aos-delay="200">
-                        <h1 class="main-title display-1 fw-bold mb-3">
-                            <span id="typed-text"></span>
-                        </h1>
-                    </div>
-                    
-                    <div data-aos="fade-up" data-aos-delay="400">
-                        <p class="lead text-light opacity-75 mb-4">
-                            آموزش‌های کاربردی، پروژه‌های واقعی، ابزارهای رایگان و جدیدترین تکنولوژی‌ها
-                        </p>
-                    </div>
-                    
-                    <div data-aos="fade-up" data-aos-delay="600" class="d-flex flex-wrap justify-content-center gap-3">
-                        <button class="btn btn-gradient text-white">
-                            <i class="bi bi-play-circle me-2"></i>شروع کنید
-                        </button>
-                        <button class="btn btn-outline-light rounded-pill px-4">
-                            <i class="bi bi-github me-2"></i>پروژه‌ها
-                        </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== بخش اصلی (Hero) ===== -->
+    <section class="hero-section" id="top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h1 class="hero-title mb-3">
+                        به <span>ALIBODAMA</span> خوش آمدید
+                    </h1>
+                    <p class="lead text-secondary mb-4" style="color: var(--gray-600) !important;">
+                        آموزش‌های کاربردی تکنولوژی، برنامه‌نویسی، هوش مصنوعی و ابزارهای رایگان
+                    </p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="#courses" class="btn-primary-custom">
+                            <i class="bi bi-play-circle me-2"></i>مشاهده آموزش‌ها
+                        </a>
+                        <a href="https://youtube.com/@alibodama" target="_blank" class="btn-outline-custom">
+                            <i class="bi bi-youtube me-2"></i>یوتیوب
+                        </a>
+                        <a href="https://t.me/alibodama" target="_blank" class="btn-outline-custom">
+                            <i class="bi bi-telegram me-2"></i>تلگرام
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- بخش آموزش‌ها با کارت‌های حرفه‌ای -->
-    <section class="py-5" style="background: var(--darker);">
+    <!-- ===== بخش آموزش‌ها (با لینک به یوتیوب) ===== -->
+    <section class="py-5" id="courses">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="section-title text-white">آموزش‌های محبوب</h2>
-                <p class="text-light opacity-75 mb-5">چیزهای کاربردی یاد بگیر و خودت بساز</p>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">آموزش‌های ویدیویی</h2>
+                <p class="text-secondary mt-3">تمام آموزش‌ها در کانال یوتیوب <strong>@alibodama</strong></p>
             </div>
 
             <div class="row g-4">
                 <!-- کارت ۱ -->
-                <div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
-                    <div class="card card-hover text-white h-100 p-4">
-                        <div class="card-body text-center">
-                            <div class="display-1 mb-3">☁️</div>
-                            <h5 class="card-title">Cloudflare</h5>
-                            <p class="card-text small opacity-75">آموزش Workers، Pages، DNS و ساخت سرویس‌های رایگان</p>
-                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
-                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="100">
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
+                        <div class="icon">☁️</div>
+                        <h5>Cloudflare</h5>
+                        <p>آموزش Workers، Pages، DNS و ساخت سرویس‌های رایگان</p>
+                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                    </a>
                 </div>
 
                 <!-- کارت ۲ -->
-                <div class="col-md-3" data-aos="flip-left" data-aos-delay="200">
-                    <div class="card card-hover text-white h-100 p-4">
-                        <div class="card-body text-center">
-                            <div class="display-1 mb-3">🚂</div>
-                            <h5 class="card-title">Railway</h5>
-                            <p class="card-text small opacity-75">دیپلوی ربات‌ها و پروژه‌ها بدون نیاز به سرور شخصی</p>
-                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
-                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="200">
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
+                        <div class="icon">🚂</div>
+                        <h5>Railway</h5>
+                        <p>دیپلوی ربات‌ها و پروژه‌ها بدون نیاز به سرور شخصی</p>
+                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                    </a>
                 </div>
 
                 <!-- کارت ۳ -->
-                <div class="col-md-3" data-aos="flip-left" data-aos-delay="300">
-                    <div class="card card-hover text-white h-100 p-4">
-                        <div class="card-body text-center">
-                            <div class="display-1 mb-3">🤖</div>
-                            <h5 class="card-title">هوش مصنوعی</h5>
-                            <p class="card-text small opacity-75">ساخت پروژه‌های AI و استفاده از ابزارهای هوش مصنوعی</p>
-                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
-                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
-                            </button>
-                        </div>
-                    </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="300">
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
+                        <div class="icon">🤖</div>
+                        <h5>هوش مصنوعی</h5>
+                        <p>ساخت پروژه‌های AI و استفاده از ابزارهای هوش مصنوعی</p>
+                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                    </a>
                 </div>
 
                 <!-- کارت ۴ -->
-                <div class="col-md-3" data-aos="flip-left" data-aos-delay="400">
-                    <div class="card card-hover text-white h-100 p-4">
-                        <div class="card-body text-center">
-                            <div class="display-1 mb-3">✈️</div>
-                            <h5 class="card-title">ربات تلگرام</h5>
-                            <p class="card-text small opacity-75">ساخت ربات‌های حرفه‌ای تلگرام از صفر تا انتشار</p>
-                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
-                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
-                            </button>
-                        </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="400">
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
+                        <div class="icon">✈️</div>
+                        <h5>ربات تلگرام</h5>
+                        <p>ساخت ربات‌های حرفه‌ای تلگرام از صفر تا انتشار</p>
+                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- دکمه دیدن همه آموزش‌ها -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="https://youtube.com/@alibodama" target="_blank" class="btn-primary-custom">
+                    <i class="bi bi-collection-play me-2"></i>تمامی آموزش‌ها در یوتیوب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ابزارهای رایگان ===== -->
+    <section class="py-5" style="background: var(--gray-100);">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">ابزارهای رایگان</h2>
+                <p class="text-secondary mt-3">ابزارهای کاربردی Alibodama</p>
+            </div>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="p-3 text-center bg-white rounded-4 shadow-sm border">
+                        <i class="bi bi-globe2 fs-1 text-primary"></i>
+                        <h6 class="mt-2">ابزارهای وب</h6>
+                        <span class="badge bg-secondary bg-opacity-10 text-secondary">به‌زودی</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="p-3 text-center bg-white rounded-4 shadow-sm border">
+                        <i class="bi bi-cpu fs-1 text-primary"></i>
+                        <h6 class="mt-2">ابزارهای AI</h6>
+                        <span class="badge bg-secondary bg-opacity-10 text-secondary">به‌زودی</span>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="p-3 text-center bg-white rounded-4 shadow-sm border">
+                        <i class="bi bi-wifi fs-1 text-primary"></i>
+                        <h6 class="mt-2">ابزارهای شبکه</h6>
+                        <span class="badge bg-secondary bg-opacity-10 text-secondary">به‌زودی</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- بخش ابزارها -->
+    <!-- ===== درباره ===== -->
     <section class="py-5">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="section-title text-white">ابزارهای رایگان</h2>
-                <p class="text-light opacity-75 mb-5">ابزارهای کاربردی Alibodama</p>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="tool-badge d-flex align-items-center justify-content-between">
-                        <span><i class="bi bi-globe2 me-2"></i>ابزارهای وب</span>
-                        <span class="badge bg-secondary bg-opacity-25">به‌زودی</span>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="tool-badge d-flex align-items-center justify-content-between">
-                        <span><i class="bi bi-cpu me-2"></i>ابزارهای AI</span>
-                        <span class="badge bg-secondary bg-opacity-25">به‌زودی</span>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="tool-badge d-flex align-items-center justify-content-between">
-                        <span><i class="bi bi-wifi me-2"></i>ابزارهای شبکه</span>
-                        <span class="badge bg-secondary bg-opacity-25">به‌زودی</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش فرم تماس و جستجو -->
-    <section class="py-5" style="background: var(--darker);">
-        <div class="container">
-            <div class="row g-4">
-                <!-- جستجو -->
-                <div class="col-md-6" data-aos="fade-right">
-                    <div class="p-4">
-                        <h4 class="text-white mb-3"><i class="bi bi-search me-2"></i>جستجوی سریع</h4>
-                        <input type="text" id="searchInput" class="search-box" placeholder="مطلب مورد نظر را جستجو کنید...">
-                        <div id="searchResults" class="mt-3 text-light"></div>
-                    </div>
-                </div>
-
-                <!-- فرم تماس با Formspree -->
-                <div class="col-md-6" data-aos="fade-left">
-                    <div class="p-4">
-                        <h4 class="text-white mb-3"><i class="bi bi-envelope me-2"></i>ارسال پیام</h4>
-                        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                            <input type="text" name="name" class="form-control mb-3" placeholder="نام شما" required>
-                            <input type="email" name="email" class="form-control mb-3" placeholder="ایمیل شما" required>
-                            <textarea name="message" class="form-control mb-3" rows="3" placeholder="پیام شما"></textarea>
-                            <button type="submit" class="btn btn-gradient text-white w-100">
-                                <i class="bi bi-send me-2"></i>ارسال پیام
-                            </button>
-                        </form>
-                        <small class="text-light opacity-50">با ارسال پیام، با سیاست حفظ حریم خصوصی موافقت می‌کنید</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش نظرات با Giscus -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center" data-aos="fade-up">
-                <h2 class="section-title text-white">نظرات شما</h2>
-                <p class="text-light opacity-75 mb-4">با حساب گیت‌هاب خود نظر دهید</p>
-            </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-                    <!-- Giscus -->
-                    <div class="giscus" style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 15px;">
-                        <script src="https://giscus.app/client.js"
-                            data-repo="alibodama/alibodama-site"
-                            data-repo-id="YOUR_REPO_ID"
-                            data-category="Announcements"
-                            data-category-id="YOUR_CATEGORY_ID"
-                            data-mapping="pathname"
-                            data-strict="0"
-                            data-reactions-enabled="1"
-                            data-emit-metadata="0"
-                            data-input-position="bottom"
-                            data-theme="dark"
-                            data-lang="fa"
-                            crossorigin="anonymous"
-                            async>
-                        </script>
+                <div class="col-lg-8 text-center" data-aos="fade-up">
+                    <h2 class="section-title">یاد بگیر. بساز. منتشر کن.</h2>
+                    <p class="text-secondary mt-3" style="font-size: 1.15rem;">
+                        Alibodama یک برند تکنولوژی و آموزشی برای کسانی است که دوست دارند با ابزارهای جدید چیزهای واقعی بسازند.
+                    </p>
+                    <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
+                        <a href="https://youtube.com/@alibodama" target="_blank" class="btn-outline-custom">
+                            <i class="bi bi-youtube me-2"></i>یوتیوب
+                        </a>
+                        <a href="https://t.me/alibodama" target="_blank" class="btn-outline-custom">
+                            <i class="bi bi-telegram me-2"></i>تلگرام
+                        </a>
+                        <a href="https://github.com/alibodama" target="_blank" class="btn-outline-custom">
+                            <i class="bi bi-github me-2"></i>گیت‌هاب
+                        </a>
                     </div>
-                    <small class="text-light opacity-50 d-block text-center mt-2">
-                        برای استفاده از بخش نظرات، <a href="https://giscus.app" target="_blank" class="text-primary">Giscus</a> را تنظیم کنید
-                    </small>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- فوتر حرفه‌ای -->
+    <!-- ===== فوتر ===== -->
     <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center text-md-start">
-                    <h5 class="text-white">🚀 ALIBODAMA</h5>
-                    <p class="text-light opacity-50 small">یاد بگیر. بساز. منتشر کن.</p>
+                    <h5 class="text-white fw-bold">🚀 ALIBODAMA</h5>
+                    <p class="small opacity-75 mb-0">یاد بگیر. بساز. منتشر کن.</p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <div class="d-flex justify-content-center gap-3">
-                        <a href="#" class="text-light opacity-50"><i class="bi bi-github fs-5"></i></a>
-                        <a href="#" class="text-light opacity-50"><i class="bi bi-telegram fs-5"></i></a>
-                        <a href="#" class="text-light opacity-50"><i class="bi bi-youtube fs-5"></i></a>
-                        <a href="#" class="text-light opacity-50"><i class="bi bi-twitter-x fs-5"></i></a>
-                    </div>
+                <div class="col-md-4 text-center my-3 my-md-0">
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="social-icon">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                    <a href="https://t.me/alibodama" target="_blank" class="social-icon">
+                        <i class="bi bi-telegram"></i>
+                    </a>
+                    <a href="https://github.com/alibodama" target="_blank" class="social-icon">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
                 </div>
                 <div class="col-md-4 text-center text-md-end">
-                    <span class="text-light opacity-50 small">۱۴۰۴ © تمامی حقوق محفوظ است</span>
+                    <span class="small opacity-50">۱۴۰۴ © تمامی حقوق محفوظ است</span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- کتابخانه‌های جاوااسکریپت -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <!-- ===== کتابخانه‌ها ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
 
     <script>
         // ===== فعال‌سازی انیمیشن‌ها =====
         AOS.init({
-            duration: 800,
-            once: true
+            duration: 700,
+            once: true,
+            easing: 'ease-out-cubic'
         });
 
-        // ===== تایپوگرافی تایپی =====
-        new Typed('#typed-text', {
-            strings: ['ALIBODAMA', 'یاد بگیر.', 'بساز.', 'منتشر کن.'],
-            typeSpeed: 80,
-            backSpeed: 50,
-            backDelay: 1500,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
+        // ===== برگشت به بالای صفحه با کلیک روی اسم =====
+        // ۱. کلیک روی اسم در هدر
+        document.getElementById('brandLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ===== جستجوی پیشرفته (Fuse.js) =====
-        const searchData = [
-            { title: 'آموزش Cloudflare', category: 'آموزش' },
-            { title: 'آموزش Railway', category: 'آموزش' },
-            { title: 'آموزش هوش مصنوعی', category: 'آموزش' },
-            { title: 'آموزش ربات تلگرام', category: 'آموزش' },
-            { title: 'ابزارهای وب', category: 'ابزار' },
-            { title: 'ابزارهای AI', category: 'ابزار' },
-            { title: 'ابزارهای شبکه', category: 'ابزار' }
-        ];
-
-        const fuse = new Fuse(searchData, {
-            keys: ['title', 'category'],
-            threshold: 0.3
-        });
-
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value;
-            const results = fuse.search(query);
-            const resultsContainer = document.getElementById('searchResults');
-            
-            if (query.length === 0) {
-                resultsContainer.innerHTML = '';
-                return;
-            }
-            
-            if (results.length === 0) {
-                resultsContainer.innerHTML = '<div class="text-light opacity-50">نتیجه‌ای یافت نشد</div>';
-                return;
-            }
-            
-            resultsContainer.innerHTML = results.map(r => 
-                `<div class="p-2 border-bottom border-light border-opacity-10">
-                    <i class="bi bi-file-text me-2"></i>${r.item.title}
-                    <span class="badge bg-primary bg-opacity-25 ms-2">${r.item.category}</span>
-                </div>`
-            ).join('');
-        });
-
-        // ===== کپی شدن آدرس‌های کیف پول (همان قابلیت قبلی) =====
-        document.querySelectorAll('.copy-address').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const address = this.dataset.address;
-                navigator.clipboard.writeText(address).then(() => {
-                    const originalText = this.innerHTML;
-                    this.innerHTML = '<i class="bi bi-check-circle"></i> کپی شد';
-                    setTimeout(() => this.innerHTML = originalText, 2000);
-                });
+        // ۲. کلیک روی هر جایی که اسم نوشته شده (با کلاس .brand-name)
+        document.querySelectorAll('.brand-name').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
-        // ===== تنظیم Favicon پویا =====
-        console.log('🚀 Alibodama نسخه ۲.۰ با موفقیت بارگذاری شد');
+        // ۳. کلیک روی هر لینکی که به #top ختم می‌شه
+        document.querySelectorAll('a[href="#top"]').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // ===== دکمه بازگشت به بالا =====
+        const backBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                backBtn.classList.add('visible');
+            } else {
+                backBtn.classList.remove('visible');
+            }
+        });
+
+        backBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== نمایش پیام در کنسول =====
+        console.log('🚀 ALIBODAMA | نسخه سفید حرفه‌ای بارگذاری شد');
+        console.log('📺 یوتیوب: https://youtube.com/@alibodama');
+        console.log('📱 تلگرام: https://t.me/alibodama');
     </script>
+
 </body>
 </html>
