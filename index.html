@@ -1,729 +1,517 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALIBODAMA | دنیای تکنولوژی به زبان ساده</title>
+    
+    <!-- SEO و ساختارمند -->
+    <meta name="description" content="آموزش‌های کاربردی، پروژه‌های واقعی و ابزارهای رایگان تکنولوژی">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Alibodama",
+        "description": "دنیای تکنولوژی به زبان ساده"
+    }
+    </script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- کتابخانه‌ها -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- فاوآیکون -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 
-  <title>ALIBODAMA | آموزش و تکنولوژی</title>
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-  <meta name="description"
-        content="ALIBODAMA | آموزش تکنولوژی، هوش مصنوعی، پروژه‌های رایگان و ابزارهای کاربردی">
+        /* هدر تایپوگرافی */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-  <link rel="stylesheet" href="style.css">
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(108, 99, 255, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .typed-cursor {
+            font-size: 2.5rem;
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.3);
+            border-color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .tool-badge {
+            background: rgba(108, 99, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tool-badge:hover {
+            background: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.2);
+        }
+
+        .footer {
+            background: var(--darker);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* فرم تماس */
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
+        }
+
+        /* پاسخگو برای موبایل */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2rem;
+            }
+            .hero {
+                min-height: 80vh;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<header class="header">
-
-  <nav class="navbar">
-
-    <a href="#" class="brand">
-      ALIBODAMA<span>.</span>
-    </a>
-
-    <div class="nav-links">
-
-      <a href="#home">خانه</a>
-
-      <a href="#courses">آموزش‌ها</a>
-
-      <a href="#tools">ابزارها</a>
-
-      <a href="#support">حمایت مالی</a>
-
-      <a href="#about">درباره من</a>
-
-    </div>
-
-    <a
-      href="https://t.me/alibodama"
-      target="_blank"
-      class="telegram-btn"
-    >
-      تلگرام ↗
-    </a>
-
-  </nav>
-
-</header>
-
-
-<main>
-
-
-<!-- ================= HERO ================= -->
-
-<section id="home" class="hero">
-
-  <div class="hero-glow glow-one"></div>
-  <div class="hero-glow glow-two"></div>
-
-  <div class="hero-content">
-
-    <div class="mini-badge">
-      🚀 TECH • AI • PROJECTS
-    </div>
-
-    <h1>
-
-      <strong>
-        ALIBODAMA
-      </strong>
-
-      <span>
-        دنیای تکنولوژی
-        <br>
-        به زبان ساده
-      </span>
-
-    </h1>
-
-    <p>
-      آموزش‌های کاربردی، پروژه‌های واقعی،
-      ابزارهای رایگان و جدیدترین تکنولوژی‌ها.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a
-        href="https://www.youtube.com/"
-        target="_blank"
-        class="primary-btn"
-      >
-        🎬 کانال یوتیوب
-      </a>
-
-      <a
-        href="https://t.me/alibodama"
-        target="_blank"
-        class="secondary-btn"
-      >
-        ✈️ کانال تلگرام
-      </a>
-
-    </div>
-
-    <div class="hero-stats">
-
-      <div>
-        <strong>100%</strong>
-        <span>رایگان</span>
-      </div>
-
-      <div>
-        <strong>∞</strong>
-        <span>پروژه</span>
-      </div>
-
-      <div>
-        <strong>24/7</strong>
-        <span>دسترسی</span>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= COURSES ================= -->
-
-<section id="courses" class="section">
-
-  <div class="section-title">
-
-    <div>
-
-      <small>
-        LEARN WITH ALIBODAMA
-      </small>
-
-      <h2>
-        آموزش‌های محبوب
-      </h2>
-
-    </div>
-
-    <p>
-      چیزهای کاربردی یاد بگیر و خودت بساز.
-    </p>
-
-  </div>
-
-
-  <div class="cards">
-
-
-    <article class="course-card">
-
-      <div class="card-icon cloud">
-        ☁️
-      </div>
-
-      <h3>
-        Cloudflare
-      </h3>
-
-      <p>
-        آموزش Cloudflare Workers، Pages، DNS
-        و ساخت سرویس‌های رایگان.
-      </p>
-
-      <a href="#">
-        مشاهده آموزش ←
-      </a>
-
-    </article>
-
-
-    <article class="course-card">
-
-      <div class="card-icon railway">
-        🚂
-      </div>
-
-      <h3>
-        Railway
-      </h3>
-
-      <p>
-        دیپلوی ربات‌ها و پروژه‌ها بدون نیاز
-        به سرور شخصی.
-      </p>
-
-      <a href="#">
-        مشاهده آموزش ←
-      </a>
-
-    </article>
-
-
-    <article class="course-card">
-
-      <div class="card-icon ai">
-        🤖
-      </div>
-
-      <h3>
-        هوش مصنوعی
-      </h3>
-
-      <p>
-        ساخت پروژه‌های AI و استفاده از
-        ابزارهای هوش مصنوعی.
-      </p>
-
-      <a href="#">
-        مشاهده آموزش ←
-      </a>
-
-    </article>
-
-
-    <article class="course-card">
-
-      <div class="card-icon telegram">
-        ✈️
-      </div>
-
-      <h3>
-        ربات تلگرام
-      </h3>
-
-      <p>
-        ساخت ربات‌های حرفه‌ای تلگرام
-        از صفر تا انتشار.
-      </p>
-
-      <a href="#">
-        مشاهده آموزش ←
-      </a>
-
-    </article>
-
-
-  </div>
-
-</section>
-
-
-<!-- ================= TOOLS ================= -->
-
-<section id="tools" class="section tools-section">
-
-  <div class="section-title">
-
-    <div>
-
-      <small>
-        FREE TOOLS
-      </small>
-
-      <h2>
-        ابزارهای رایگان
-      </h2>
-
-    </div>
-
-    <p>
-      ابزارهای کاربردی Alibodama
-    </p>
-
-  </div>
-
-
-  <div class="tools-grid">
-
-
-    <div class="tool-card">
-
-      <div class="tool-number">
-        01
-      </div>
-
-      <h3>
-        ابزارهای وب
-      </h3>
-
-      <p>
-        ابزارهای ساده و کاربردی برای
-        کارهای روزمره.
-      </p>
-
-      <span>
-        به‌زودی
-      </span>
-
-    </div>
-
-
-    <div class="tool-card">
-
-      <div class="tool-number">
-        02
-      </div>
-
-      <h3>
-        ابزارهای AI
-      </h3>
-
-      <p>
-        ابزارهای هوش مصنوعی برای
-        کاربران و سازندگان محتوا.
-      </p>
-
-      <span>
-        به‌زودی
-      </span>
-
-    </div>
-
-
-    <div class="tool-card">
-
-      <div class="tool-number">
-        03
-      </div>
-
-      <h3>
-        ابزارهای شبکه
-      </h3>
-
-      <p>
-        ابزارهای کاربردی شبکه و
-        توسعه‌دهندگان.
-      </p>
-
-      <span>
-        به‌زودی
-      </span>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- ================= SUPPORT ================= -->
-
-<section id="support" class="support-section">
-
-  <div class="support-header">
-
-    <div class="heart">
-      ❤️
-    </div>
-
-    <small>
-      SUPPORT ALIBODAMA
-    </small>
-
-    <h2>
-      از Alibodama حمایت کن
-    </h2>
-
-    <p>
-      اگر آموزش‌ها و پروژه‌های Alibodama
-      برای شما مفید بوده، می‌توانید با
-      ارز دیجیتال از ادامه فعالیت و ساخت
-      پروژه‌های رایگان حمایت کنید. ❤️
-    </p>
-
-  </div>
-
-
-  <div class="crypto-grid">
-
-
-    <!-- ================= TON ================= -->
-
-    <div class="crypto-card ton-card">
-
-      <div class="crypto-top">
-
-        <div class="crypto-logo ton-logo">
-          TON
+    <!-- هدر اصلی با تایپوگرافی -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <span class="badge bg-primary bg-opacity-25 text-light px-4 py-2 rounded-pill mb-4">
+                            <i class="bi bi-rocket-takeoff me-2"></i>نسخه ۲.۰
+                        </span>
+                    </div>
+                    
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h1 class="main-title display-1 fw-bold mb-3">
+                            <span id="typed-text"></span>
+                        </h1>
+                    </div>
+                    
+                    <div data-aos="fade-up" data-aos-delay="400">
+                        <p class="lead text-light opacity-75 mb-4">
+                            آموزش‌های کاربردی، پروژه‌های واقعی، ابزارهای رایگان و جدیدترین تکنولوژی‌ها
+                        </p>
+                    </div>
+                    
+                    <div data-aos="fade-up" data-aos-delay="600" class="d-flex flex-wrap justify-content-center gap-3">
+                        <button class="btn btn-gradient text-white">
+                            <i class="bi bi-play-circle me-2"></i>شروع کنید
+                        </button>
+                        <button class="btn btn-outline-light rounded-pill px-4">
+                            <i class="bi bi-github me-2"></i>پروژه‌ها
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
+    <!-- بخش آموزش‌ها با کارت‌های حرفه‌ای -->
+    <section class="py-5" style="background: var(--darker);">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title text-white">آموزش‌های محبوب</h2>
+                <p class="text-light opacity-75 mb-5">چیزهای کاربردی یاد بگیر و خودت بساز</p>
+            </div>
 
-          <h3>
-            Toncoin
-          </h3>
+            <div class="row g-4">
+                <!-- کارت ۱ -->
+                <div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card card-hover text-white h-100 p-4">
+                        <div class="card-body text-center">
+                            <div class="display-1 mb-3">☁️</div>
+                            <h5 class="card-title">Cloudflare</h5>
+                            <p class="card-text small opacity-75">آموزش Workers، Pages، DNS و ساخت سرویس‌های رایگان</p>
+                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
+                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-          <span>
-            TON Network
-          </span>
+                <!-- کارت ۲ -->
+                <div class="col-md-3" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card card-hover text-white h-100 p-4">
+                        <div class="card-body text-center">
+                            <div class="display-1 mb-3">🚂</div>
+                            <h5 class="card-title">Railway</h5>
+                            <p class="card-text small opacity-75">دیپلوی ربات‌ها و پروژه‌ها بدون نیاز به سرور شخصی</p>
+                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
+                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- کارت ۳ -->
+                <div class="col-md-3" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card card-hover text-white h-100 p-4">
+                        <div class="card-body text-center">
+                            <div class="display-1 mb-3">🤖</div>
+                            <h5 class="card-title">هوش مصنوعی</h5>
+                            <p class="card-text small opacity-75">ساخت پروژه‌های AI و استفاده از ابزارهای هوش مصنوعی</p>
+                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
+                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- کارت ۴ -->
+                <div class="col-md-3" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card card-hover text-white h-100 p-4">
+                        <div class="card-body text-center">
+                            <div class="display-1 mb-3">✈️</div>
+                            <h5 class="card-title">ربات تلگرام</h5>
+                            <p class="card-text small opacity-75">ساخت ربات‌های حرفه‌ای تلگرام از صفر تا انتشار</p>
+                            <button class="btn btn-outline-light btn-sm rounded-pill mt-3">
+                                مشاهده آموزش <i class="bi bi-arrow-left me-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
+    <!-- بخش ابزارها -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title text-white">ابزارهای رایگان</h2>
+                <p class="text-light opacity-75 mb-5">ابزارهای کاربردی Alibodama</p>
+            </div>
 
-
-      <div class="wallet-label">
-        آدرس کیف پول TON
-      </div>
-
-
-      <div class="wallet-box">
-
-        <code>
-          UQBubK6UnZz12W4br42cfx5SGdF3nLA34w2A3s1q0jVwtBtS
-        </code>
-
-        <button onclick="copyWallet('ton')">
-          کپی
-        </button>
-
-      </div>
-
-
-      <div id="ton" class="copy-message">
-        ✓ آدرس کپی شد
-      </div>
-
-    </div>
-
-
-    <!-- ================= USDT ERC20 ================= -->
-
-    <div class="crypto-card usdt-card">
-
-      <div class="crypto-top">
-
-        <div class="crypto-logo usdt-logo">
-          ₮
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tool-badge d-flex align-items-center justify-content-between">
+                        <span><i class="bi bi-globe2 me-2"></i>ابزارهای وب</span>
+                        <span class="badge bg-secondary bg-opacity-25">به‌زودی</span>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tool-badge d-flex align-items-center justify-content-between">
+                        <span><i class="bi bi-cpu me-2"></i>ابزارهای AI</span>
+                        <span class="badge bg-secondary bg-opacity-25">به‌زودی</span>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tool-badge d-flex align-items-center justify-content-between">
+                        <span><i class="bi bi-wifi me-2"></i>ابزارهای شبکه</span>
+                        <span class="badge bg-secondary bg-opacity-25">به‌زودی</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
+    <!-- بخش فرم تماس و جستجو -->
+    <section class="py-5" style="background: var(--darker);">
+        <div class="container">
+            <div class="row g-4">
+                <!-- جستجو -->
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="p-4">
+                        <h4 class="text-white mb-3"><i class="bi bi-search me-2"></i>جستجوی سریع</h4>
+                        <input type="text" id="searchInput" class="search-box" placeholder="مطلب مورد نظر را جستجو کنید...">
+                        <div id="searchResults" class="mt-3 text-light"></div>
+                    </div>
+                </div>
 
-          <h3>
-            USDT
-          </h3>
-
-          <span>
-            Ethereum — ERC20
-          </span>
-
+                <!-- فرم تماس با Formspree -->
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="p-4">
+                        <h4 class="text-white mb-3"><i class="bi bi-envelope me-2"></i>ارسال پیام</h4>
+                        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <input type="text" name="name" class="form-control mb-3" placeholder="نام شما" required>
+                            <input type="email" name="email" class="form-control mb-3" placeholder="ایمیل شما" required>
+                            <textarea name="message" class="form-control mb-3" rows="3" placeholder="پیام شما"></textarea>
+                            <button type="submit" class="btn btn-gradient text-white w-100">
+                                <i class="bi bi-send me-2"></i>ارسال پیام
+                            </button>
+                        </form>
+                        <small class="text-light opacity-50">با ارسال پیام، با سیاست حفظ حریم خصوصی موافقت می‌کنید</small>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-
-
-      <div class="wallet-label">
-        آدرس USDT روی شبکه Ethereum ERC20
-      </div>
-
-
-      <div class="wallet-box">
-
-        <code>
-          0xC950f4D465C5DfBa8c5c3C31C53771b3173290c1
-        </code>
-
-        <button onclick="copyWallet('usdt')">
-          کپی
-        </button>
-
-      </div>
-
-
-      <div id="usdt" class="copy-message">
-        ✓ آدرس کپی شد
-      </div>
-
-      <div class="network-warning">
-        ⚠️ فقط شبکه Ethereum (ERC20)
-      </div>
-
-    </div>
-
-
-    <!-- ================= TRON ================= -->
-
-    <div class="crypto-card trx-card">
-
-      <div class="crypto-top">
-
-        <div class="crypto-logo trx-logo">
-          TRX
+    <!-- بخش نظرات با Giscus -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title text-white">نظرات شما</h2>
+                <p class="text-light opacity-75 mb-4">با حساب گیت‌هاب خود نظر دهید</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Giscus -->
+                    <div class="giscus" style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 15px;">
+                        <script src="https://giscus.app/client.js"
+                            data-repo="alibodama/alibodama-site"
+                            data-repo-id="YOUR_REPO_ID"
+                            data-category="Announcements"
+                            data-category-id="YOUR_CATEGORY_ID"
+                            data-mapping="pathname"
+                            data-strict="0"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="bottom"
+                            data-theme="dark"
+                            data-lang="fa"
+                            crossorigin="anonymous"
+                            async>
+                        </script>
+                    </div>
+                    <small class="text-light opacity-50 d-block text-center mt-2">
+                        برای استفاده از بخش نظرات، <a href="https://giscus.app" target="_blank" class="text-primary">Giscus</a> را تنظیم کنید
+                    </small>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
-
-          <h3>
-            TRON
-          </h3>
-
-          <span>
-            TRON Network
-          </span>
-
+    <!-- فوتر حرفه‌ای -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center text-md-start">
+                    <h5 class="text-white">🚀 ALIBODAMA</h5>
+                    <p class="text-light opacity-50 small">یاد بگیر. بساز. منتشر کن.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="text-light opacity-50"><i class="bi bi-github fs-5"></i></a>
+                        <a href="#" class="text-light opacity-50"><i class="bi bi-telegram fs-5"></i></a>
+                        <a href="#" class="text-light opacity-50"><i class="bi bi-youtube fs-5"></i></a>
+                        <a href="#" class="text-light opacity-50"><i class="bi bi-twitter-x fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <span class="text-light opacity-50 small">۱۴۰۴ © تمامی حقوق محفوظ است</span>
+                </div>
+            </div>
         </div>
-
-      </div>
-
-
-      <div class="wallet-label">
-        آدرس کیف پول TRON
-      </div>
-
-
-      <div class="wallet-box">
-
-        <code>
-          TPNx3aggHMXXemvxaAA2VWkdemLPQin435
-        </code>
-
-        <button onclick="copyWallet('trx')">
-          کپی
-        </button>
-
-      </div>
-
-
-      <div id="trx" class="copy-message">
-        ✓ آدرس کپی شد
-      </div>
-
-    </div>
-
-
-    <!-- ================= BITCOIN ================= -->
-
-    <div class="crypto-card btc-card">
-
-      <div class="crypto-top">
-
-        <div class="crypto-logo btc-logo">
-          ₿
-        </div>
-
-        <div>
-
-          <h3>
-            Bitcoin
-          </h3>
-
-          <span>
-            Bitcoin Network
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="wallet-label">
-        آدرس کیف پول Bitcoin
-      </div>
-
-
-      <div class="wallet-box">
-
-        <code>
-          bc1qnrkhmkffnk7vk4dvyjvg73pt6545x9kcyqeyy4
-        </code>
-
-        <button onclick="copyWallet('btc')">
-          کپی
-        </button>
-
-      </div>
-
-
-      <div id="btc" class="copy-message">
-        ✓ آدرس کپی شد
-      </div>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="support-note">
-
-    🔒 لطفاً قبل از ارسال، شبکه و آدرس کیف پول
-    را با دقت بررسی کنید.
-
-  </div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about" class="about-section">
-
-  <div class="about-text">
-
-    <small>
-      ABOUT ALIBODAMA
-    </small>
-
-    <h2>
-      یاد بگیر.
-      <br>
-      بساز.
-      <br>
-      منتشر کن.
-    </h2>
-
-    <p>
-      Alibodama یک برند تکنولوژی و آموزشی
-      برای کسانی است که دوست دارند با
-      ابزارهای جدید چیزهای واقعی بسازند.
-    </p>
-
-    <a
-      href="https://t.me/alibodama"
-      target="_blank"
-      class="primary-btn"
-    >
-      شروع کنیم ↗
-    </a>
-
-  </div>
-
-
-  <div class="about-visual">
-
-    <div class="big-logo">
-
-      ALIBODAMA<span>.</span>
-
-    </div>
-
-    <div class="code-line">
-      &lt;create /&gt;
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-  <div class="footer-logo">
-    ALIBODAMA<span>.</span>
-  </div>
-
-  <p>
-    © 2026 ALIBODAMA — All rights reserved.
-  </p>
-
-  <div class="footer-links">
-
-    <a href="https://t.me/alibodama">
-      Telegram
-    </a>
-
-    <a href="https://www.youtube.com/">
-      YouTube
-    </a>
-
-  </div>
-
-</footer>
-
-
-<script>
-
-const wallets = {
-
-  ton:
-  "UQBubK6UnZz12W4br42cfx5SGdF3nLA34w2A3s1q0jVwtBtS",
-
-  usdt:
-  "0xC950f4D465C5DfBa8c5c3C31C53771b3173290c1",
-
-  trx:
-  "TPNx3aggHMXXemvxaAA2VWkdemLPQin435",
-
-  btc:
-  "bc1qnrkhmkffnk7vk4dvyjvg73pt6545x9kcyqeyy4"
-
-};
-
-
-function copyWallet(type) {
-
-  const address = wallets[type];
-
-  navigator.clipboard.writeText(address)
-    .then(function() {
-
-      const message =
-        document.getElementById(type);
-
-      message.classList.add("show");
-
-      setTimeout(function() {
-
-        message.classList.remove("show");
-
-      }, 2000);
-
-    });
-
-}
-
-</script>
-
-
+    </footer>
+
+    <!-- کتابخانه‌های جاوااسکریپت -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+
+    <script>
+        // ===== فعال‌سازی انیمیشن‌ها =====
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // ===== تایپوگرافی تایپی =====
+        new Typed('#typed-text', {
+            strings: ['ALIBODAMA', 'یاد بگیر.', 'بساز.', 'منتشر کن.'],
+            typeSpeed: 80,
+            backSpeed: 50,
+            backDelay: 1500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+
+        // ===== جستجوی پیشرفته (Fuse.js) =====
+        const searchData = [
+            { title: 'آموزش Cloudflare', category: 'آموزش' },
+            { title: 'آموزش Railway', category: 'آموزش' },
+            { title: 'آموزش هوش مصنوعی', category: 'آموزش' },
+            { title: 'آموزش ربات تلگرام', category: 'آموزش' },
+            { title: 'ابزارهای وب', category: 'ابزار' },
+            { title: 'ابزارهای AI', category: 'ابزار' },
+            { title: 'ابزارهای شبکه', category: 'ابزار' }
+        ];
+
+        const fuse = new Fuse(searchData, {
+            keys: ['title', 'category'],
+            threshold: 0.3
+        });
+
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value;
+            const results = fuse.search(query);
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (query.length === 0) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+            
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="text-light opacity-50">نتیجه‌ای یافت نشد</div>';
+                return;
+            }
+            
+            resultsContainer.innerHTML = results.map(r => 
+                `<div class="p-2 border-bottom border-light border-opacity-10">
+                    <i class="bi bi-file-text me-2"></i>${r.item.title}
+                    <span class="badge bg-primary bg-opacity-25 ms-2">${r.item.category}</span>
+                </div>`
+            ).join('');
+        });
+
+        // ===== کپی شدن آدرس‌های کیف پول (همان قابلیت قبلی) =====
+        document.querySelectorAll('.copy-address').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const address = this.dataset.address;
+                navigator.clipboard.writeText(address).then(() => {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="bi bi-check-circle"></i> کپی شد';
+                    setTimeout(() => this.innerHTML = originalText, 2000);
+                });
+            });
+        });
+
+        // ===== تنظیم Favicon پویا =====
+        console.log('🚀 Alibodama نسخه ۲.۰ با موفقیت بارگذاری شد');
+    </script>
 </body>
-
 </html>
