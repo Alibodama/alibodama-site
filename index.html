@@ -6,27 +6,29 @@
     <title>ALIBODAMA | دنیای تکنولوژی به زبان ساده</title>
 
     <!-- سئو -->
-    <meta name="description" content="آموزش‌های تکنولوژی، برنامه‌نویسی و هوش مصنوعی با علی بوداما" />
+    <meta name="description" content="آموزش‌های تکنولوژی، برنامه‌نویسی و هوش مصنوعی با علی بوداما - همه چیز رایگان" />
     <link rel="canonical" href="https://alibodama.github.io/alibodama-site" />
 
     <!-- Bootstrap & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
 
+    <!-- Font Awesome (برای آیکون‌های بیشتر) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <!-- انیمیشن -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <style>
-        /* ===== تم سفید حرفه‌ای ===== */
+        /* ===== استایل‌های الهام گرفته از گیت‌هاب ===== */
         :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
-            --secondary: #7c3aed;
-            --gray-100: #f8fafc;
-            --gray-200: #e2e8f0;
-            --gray-600: #64748b;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
+            --github-bg: #f6f8fa;
+            --github-border: #d0d7de;
+            --github-text: #24292f;
+            --github-subtext: #57606a;
+            --github-blue: #0969da;
+            --github-green: #2da44e;
+            --github-hover: #f3f4f6;
         }
 
         * {
@@ -36,310 +38,412 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
-            color: var(--gray-900);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--github-bg);
+            color: var(--github-text);
             scroll-behavior: smooth;
         }
 
-        /* ===== هدر با اسم بزرگ ===== */
-        .site-header {
-            background: linear-gradient(135deg, #ffffff 0%, var(--gray-100) 100%);
-            padding: 2rem 0 1rem 0;
-            border-bottom: 2px solid var(--gray-200);
+        /* ===== نوار بالایی (مثل گیت‌هاب) ===== */
+        .top-bar {
+            background: var(--github-text);
+            color: #fff;
+            padding: 0.4rem 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .top-bar a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .top-bar a:hover {
+            color: #fff;
+        }
+
+        /* ===== هدر اصلی (مثل گیت‌هاب) ===== */
+        .github-header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--github-border);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.92);
         }
 
-        .brand-name {
-            font-size: 4.5rem;
-            font-weight: 900;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            display: inline-block;
+        .header-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--github-text);
             text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            letter-spacing: -0.5px;
         }
 
-        .brand-name:hover {
-            transform: scale(1.03);
+        .header-logo:hover {
+            color: var(--github-blue);
         }
 
-        .brand-sub {
-            font-size: 1.1rem;
-            color: var(--gray-600);
-            letter-spacing: 1px;
+        .header-logo i {
+            color: var(--github-blue);
+            margin-left: 6px;
         }
 
-        /* ===== بخش قهرمان (Hero) ===== */
-        .hero-section {
-            padding: 4rem 0;
-            background: linear-gradient(180deg, #ffffff 0%, var(--gray-100) 100%);
+        .header-nav a {
+            color: var(--github-subtext);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--github-text);
+            background: var(--github-hover);
+        }
+
+        /* ===== بخش قهرمان (Hero) - مثل گیت‌هاب ===== */
+        .hero-github {
+            padding: 5rem 0 4rem 0;
+            background: #ffffff;
+            border-bottom: 1px solid var(--github-border);
         }
 
         .hero-title {
-            font-size: 3.2rem;
+            font-size: 4rem;
             font-weight: 800;
-            color: var(--gray-900);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            color: var(--github-text);
         }
 
-        .hero-title span {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--github-blue), #8250df);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .btn-primary-custom {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .hero-slogan {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--github-blue);
+            margin-top: 1rem;
+            letter-spacing: -0.5px;
+            background: rgba(9, 105, 218, 0.08);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: var(--github-subtext);
+            max-width: 540px;
+            margin: 1.5rem auto;
+        }
+
+        .btn-github-primary {
+            background: var(--github-green);
+            color: #fff;
             border: none;
-            padding: 0.8rem 2.2rem;
-            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
             font-weight: 600;
-            color: #fff;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.2s;
             text-decoration: none;
             display: inline-block;
         }
 
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+        .btn-github-primary:hover {
+            background: #2c974b;
             color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 164, 78, 0.35);
         }
 
-        .btn-outline-custom {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 0.8rem 2.2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        .btn-github-secondary {
             background: transparent;
-        }
-
-        .btn-outline-custom:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: translateY(-3px);
-        }
-
-        /* ===== کارت‌های آموزش ===== */
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            position: relative;
+            color: var(--github-text);
+            border: 1px solid var(--github-border);
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            text-decoration: none;
             display: inline-block;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
+        .btn-github-secondary:hover {
+            background: var(--github-hover);
+            border-color: var(--github-subtext);
+            color: var(--github-text);
         }
 
-        .edu-card {
+        /* ===== کارت‌های آموزش به سبک گیت‌هاب ===== */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--github-text);
+            letter-spacing: -0.5px;
+        }
+
+        .section-sub {
+            color: var(--github-subtext);
+            font-size: 1.05rem;
+        }
+
+        .github-card {
             background: #ffffff;
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s ease;
-            border: 1px solid var(--gray-200);
+            border: 1px solid var(--github-border);
+            border-radius: 12px;
+            padding: 1.8rem 1.5rem;
+            transition: all 0.3s ease;
             height: 100%;
-            text-align: center;
-            cursor: pointer;
             text-decoration: none;
-            color: var(--gray-900);
+            color: var(--github-text);
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .github-card:hover {
+            border-color: var(--github-blue);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+            text-decoration: none;
+            color: var(--github-text);
+        }
+
+        .github-card .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
             display: block;
         }
 
-        .edu-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
-            border-color: var(--primary);
-            text-decoration: none;
-            color: var(--gray-900);
-        }
-
-        .edu-card .icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .edu-card h5 {
+        .github-card h5 {
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
-        .edu-card p {
-            color: var(--gray-600);
+        .github-card p {
+            color: var(--github-subtext);
             font-size: 0.95rem;
         }
 
-        .edu-card .badge-youtube {
-            background: #ff0000;
-            color: #fff;
-            padding: 0.25rem 1rem;
-            border-radius: 50px;
+        .github-card .card-badge {
+            background: var(--github-bg);
+            color: var(--github-subtext);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
             font-size: 0.75rem;
-            display: inline-block;
-            margin-top: 0.5rem;
+            border: 1px solid var(--github-border);
         }
 
-        /* ===== دکمه برگشت به بالا ===== */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
+        /* ===== ابزارها ===== */
+        .tool-item {
+            background: #ffffff;
+            border: 1px solid var(--github-border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tool-item:hover {
+            border-color: var(--github-blue);
+            background: var(--github-hover);
+        }
+
+        /* ===== فوتر (مثل گیت‌هاب) ===== */
+        .github-footer {
+            background: #ffffff;
+            border-top: 1px solid var(--github-border);
+            padding: 2.5rem 0 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .github-footer a {
+            color: var(--github-subtext);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .github-footer a:hover {
+            color: var(--github-blue);
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #fff;
-            border: none;
-            font-size: 1.5rem;
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            color: var(--github-subtext);
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .footer-social a:hover {
+            color: var(--github-text);
+            background: var(--github-hover);
+        }
+
+        .footer-copy {
+            color: var(--github-subtext);
+            font-size: 0.85rem;
+        }
+
+        .footer-copy .year {
+            font-weight: 600;
+            color: var(--github-text);
+        }
+
+        /* ===== دکمه بازگشت ===== */
+        .back-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid var(--github-border);
+            color: var(--github-text);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
+            transform: translateY(16px);
             z-index: 999;
             cursor: pointer;
         }
 
-        .back-to-top.visible {
+        .back-top.visible {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .back-to-top:hover {
-            transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 12px 35px rgba(37, 99, 235, 0.5);
-        }
-
-        /* ===== فوتر ===== */
-        .footer {
-            background: var(--gray-900);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 3rem 0 2rem 0;
-            margin-top: 4rem;
-        }
-
-        .footer a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #fff;
-        }
-
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            transition: all 0.3s ease;
-            color: #fff;
-            font-size: 1.2rem;
-            margin: 0 4px;
-        }
-
-        .social-icon:hover {
-            background: var(--primary);
-            transform: translateY(-4px);
-            color: #fff;
+        .back-top:hover {
+            background: var(--github-hover);
+            border-color: var(--github-subtext);
+            transform: scale(1.05);
         }
 
         /* ===== واکنش‌گرایی ===== */
         @media (max-width: 768px) {
-            .brand-name {
-                font-size: 2.8rem;
-            }
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2.6rem;
             }
-            .site-header {
-                padding: 1rem 0;
-            }
-            .back-to-top {
-                width: 48px;
-                height: 48px;
+            .hero-slogan {
                 font-size: 1.2rem;
-                bottom: 20px;
-                right: 20px;
+                padding: 0.3rem 1rem;
+            }
+            .header-logo {
+                font-size: 1.8rem;
+            }
+            .github-card {
+                padding: 1.2rem;
             }
         }
 
         @media (max-width: 576px) {
-            .brand-name {
-                font-size: 2.2rem;
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-slogan {
+                font-size: 1rem;
+            }
+            .header-logo {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== دکمه برگشت به بالا ===== -->
-    <button class="back-to-top" id="backToTop" aria-label="بازگشت به بالا">
-        <i class="bi bi-chevron-up"></i>
+    <!-- ===== دکمه بازگشت به بالا ===== -->
+    <button class="back-top" id="backTop" aria-label="بازگشت به بالا">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- ===== هدر با اسم بزرگ ===== -->
-    <header class="site-header">
+    <!-- ===== نوار بالایی (مثل گیت‌هاب) ===== -->
+    <div class="top-bar">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 text-center">
-                    <a href="#" class="brand-name" id="brandLink">ALIBODAMA</a>
-                    <div class="brand-sub">
-                        <i class="bi bi-dot"></i> دنیای تکنولوژی به زبان ساده
-                    </div>
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <span>
+                    <i class="fas fa-code me-1"></i>
+                    <span class="d-none d-sm-inline">آموزش‌های رایگان تکنولوژی</span>
+                </span>
+                <div>
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="me-3">
+                        <i class="fab fa-youtube me-1"></i>یوتیوب
+                    </a>
+                    <a href="https://t.me/alibodama" target="_blank" class="me-3">
+                        <i class="fab fa-telegram me-1"></i>تلگرام
+                    </a>
+                    <a href="https://twitter.com/alibodama" target="_blank">
+                        <i class="fab fa-twitter me-1"></i>توییتر
+                    </a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== هدر اصلی (مثل گیت‌هاب) ===== -->
+    <header class="github-header">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <a href="#" class="header-logo" id="brandLink">
+                    <i class="fab fa-github"></i> ALIBODAMA
+                </a>
+                <nav class="header-nav d-flex flex-wrap gap-1">
+                    <a href="#courses">آموزش‌ها</a>
+                    <a href="#tools">ابزارها</a>
+                    <a href="https://youtube.com/@alibodama" target="_blank">یوتیوب</a>
+                    <a href="https://t.me/alibodama" target="_blank">تلگرام</a>
+                    <a href="https://twitter.com/alibodama" target="_blank">توییتر</a>
+                </nav>
             </div>
         </div>
     </header>
 
-    <!-- ===== بخش اصلی (Hero) ===== -->
-    <section class="hero-section" id="top">
+    <!-- ===== بخش قهرمان (Hero) ===== -->
+    <section class="hero-github" id="top">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h1 class="hero-title mb-3">
-                        به <span>ALIBODAMA</span> خوش آمدید
+                    <h1 class="hero-title">
+                        <span class="highlight">ALIBODAMA</span>
                     </h1>
-                    <p class="lead text-secondary mb-4" style="color: var(--gray-600) !important;">
+                    <div class="hero-slogan">
+                        <i class="fas fa-gift me-2"></i> اینجا همه چیز رایگانه
+                    </div>
+                    <p class="hero-sub">
                         آموزش‌های کاربردی تکنولوژی، برنامه‌نویسی، هوش مصنوعی و ابزارهای رایگان
                     </p>
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <a href="#courses" class="btn-primary-custom">
-                            <i class="bi bi-play-circle me-2"></i>مشاهده آموزش‌ها
+                    <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+                        <a href="#courses" class="btn-github-primary">
+                            <i class="fas fa-play me-2"></i>مشاهده آموزش‌ها
                         </a>
-                        <a href="https://youtube.com/@alibodama" target="_blank" class="btn-outline-custom">
-                            <i class="bi bi-youtube me-2"></i>یوتیوب
+                        <a href="https://youtube.com/@alibodama" target="_blank" class="btn-github-secondary">
+                            <i class="fab fa-youtube me-2"></i>یوتیوب
                         </a>
-                        <a href="https://t.me/alibodama" target="_blank" class="btn-outline-custom">
-                            <i class="bi bi-telegram me-2"></i>تلگرام
+                        <a href="https://t.me/alibodama" target="_blank" class="btn-github-secondary">
+                            <i class="fab fa-telegram me-2"></i>تلگرام
                         </a>
                     </div>
                 </div>
@@ -347,92 +451,88 @@
         </div>
     </section>
 
-    <!-- ===== بخش آموزش‌ها (با لینک به یوتیوب) ===== -->
+    <!-- ===== بخش آموزش‌ها ===== -->
     <section class="py-5" id="courses">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">آموزش‌های ویدیویی</h2>
-                <p class="text-secondary mt-3">تمام آموزش‌ها در کانال یوتیوب <strong>@alibodama</strong></p>
+                <h2 class="section-title">📺 آموزش‌های ویدیویی</h2>
+                <p class="section-sub">تمامی آموزش‌ها در کانال یوتیوب <strong>@alibodama</strong></p>
             </div>
 
             <div class="row g-4">
                 <!-- کارت ۱ -->
                 <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="100">
-                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
-                        <div class="icon">☁️</div>
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="github-card">
+                        <span class="card-icon">☁️</span>
                         <h5>Cloudflare</h5>
                         <p>آموزش Workers، Pages، DNS و ساخت سرویس‌های رایگان</p>
-                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                        <span class="card-badge"><i class="fab fa-youtube me-1"></i>یوتیوب</span>
                     </a>
                 </div>
 
                 <!-- کارت ۲ -->
                 <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="200">
-                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
-                        <div class="icon">🚂</div>
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="github-card">
+                        <span class="card-icon">🚂</span>
                         <h5>Railway</h5>
                         <p>دیپلوی ربات‌ها و پروژه‌ها بدون نیاز به سرور شخصی</p>
-                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                        <span class="card-badge"><i class="fab fa-youtube me-1"></i>یوتیوب</span>
                     </a>
                 </div>
 
                 <!-- کارت ۳ -->
                 <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="300">
-                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
-                        <div class="icon">🤖</div>
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="github-card">
+                        <span class="card-icon">🤖</span>
                         <h5>هوش مصنوعی</h5>
                         <p>ساخت پروژه‌های AI و استفاده از ابزارهای هوش مصنوعی</p>
-                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                        <span class="card-badge"><i class="fab fa-youtube me-1"></i>یوتیوب</span>
                     </a>
                 </div>
 
                 <!-- کارت ۴ -->
                 <div class="col-md-3 col-sm-6" data-aos="flip-up" data-aos-delay="400">
-                    <a href="https://youtube.com/@alibodama" target="_blank" class="edu-card">
-                        <div class="icon">✈️</div>
+                    <a href="https://youtube.com/@alibodama" target="_blank" class="github-card">
+                        <span class="card-icon">✈️</span>
                         <h5>ربات تلگرام</h5>
                         <p>ساخت ربات‌های حرفه‌ای تلگرام از صفر تا انتشار</p>
-                        <span class="badge-youtube"><i class="bi bi-youtube me-1"></i>یوتیوب</span>
+                        <span class="card-badge"><i class="fab fa-youtube me-1"></i>یوتیوب</span>
                     </a>
                 </div>
             </div>
 
-            <!-- دکمه دیدن همه آموزش‌ها -->
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="https://youtube.com/@alibodama" target="_blank" class="btn-primary-custom">
-                    <i class="bi bi-collection-play me-2"></i>تمامی آموزش‌ها در یوتیوب
+                <a href="https://youtube.com/@alibodama" target="_blank" class="btn-github-primary">
+                    <i class="fas fa-collection me-2"></i>تمامی آموزش‌ها در یوتیوب
                 </a>
             </div>
         </div>
     </section>
 
     <!-- ===== ابزارهای رایگان ===== -->
-    <section class="py-5" style="background: var(--gray-100);">
+    <section class="py-5" style="background: var(--github-bg);" id="tools">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="section-title">ابزارهای رایگان</h2>
-                <p class="text-secondary mt-3">ابزارهای کاربردی Alibodama</p>
+                <h2 class="section-title">🛠️ ابزارهای رایگان</h2>
+                <p class="section-sub">ابزارهای کاربردی Alibodama</p>
             </div>
 
             <div class="row g-3 justify-content-center">
-                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="p-3 text-center bg-white rounded-4 shadow-sm border">
-                        <i class="bi bi-globe2 fs-1 text-primary"></i>
-                        <h6 class="mt-2">ابزارهای وب</h6>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tool-item">
+                        <span><i class="fas fa-globe me-2 text-primary"></i>ابزارهای وب</span>
                         <span class="badge bg-secondary bg-opacity-10 text-secondary">به‌زودی</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="p-3 text-center bg-white rounded-4 shadow-sm border">
-                        <i class="bi bi-cpu fs-1 text-primary"></i>
-                        <h6 class="mt-2">ابزارهای AI</h6>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tool-item">
+                        <span><i class="fas fa-microchip me-2 text-primary"></i>ابزارهای AI</span>
                         <span class="badge bg-secondary bg-opacity-10 text-secondary">به‌زودی</span>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="p-3 text-center bg-white rounded-4 shadow-sm border">
-                        <i class="bi bi-wifi fs-1 text-primary"></i>
-                        <h6 class="mt-2">ابزارهای شبکه</h6>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tool-item">
+                        <span><i class="fas fa-wifi me-2 text-primary"></i>ابزارهای شبکه</span>
                         <span class="badge bg-secondary bg-opacity-10 text-secondary">به‌زودی</span>
                     </div>
                 </div>
@@ -445,19 +545,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <h2 class="section-title">یاد بگیر. بساز. منتشر کن.</h2>
-                    <p class="text-secondary mt-3" style="font-size: 1.15rem;">
+                    <h2 class="section-title">🚀 یاد بگیر. بساز. منتشر کن.</h2>
+                    <p class="section-sub mt-3" style="font-size: 1.1rem;">
                         Alibodama یک برند تکنولوژی و آموزشی برای کسانی است که دوست دارند با ابزارهای جدید چیزهای واقعی بسازند.
                     </p>
                     <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
-                        <a href="https://youtube.com/@alibodama" target="_blank" class="btn-outline-custom">
-                            <i class="bi bi-youtube me-2"></i>یوتیوب
+                        <a href="https://youtube.com/@alibodama" target="_blank" class="btn-github-secondary">
+                            <i class="fab fa-youtube me-2"></i>یوتیوب
                         </a>
-                        <a href="https://t.me/alibodama" target="_blank" class="btn-outline-custom">
-                            <i class="bi bi-telegram me-2"></i>تلگرام
+                        <a href="https://t.me/alibodama" target="_blank" class="btn-github-secondary">
+                            <i class="fab fa-telegram me-2"></i>تلگرام
                         </a>
-                        <a href="https://github.com/alibodama" target="_blank" class="btn-outline-custom">
-                            <i class="bi bi-github me-2"></i>گیت‌هاب
+                        <a href="https://twitter.com/alibodama" target="_blank" class="btn-github-secondary">
+                            <i class="fab fa-twitter me-2"></i>توییتر
+                        </a>
+                        <a href="https://github.com/alibodama" target="_blank" class="btn-github-secondary">
+                            <i class="fab fa-github me-2"></i>گیت‌هاب
                         </a>
                     </div>
                 </div>
@@ -465,30 +568,38 @@
         </div>
     </section>
 
-    <!-- ===== فوتر ===== -->
-    <footer class="footer">
+    <!-- ===== فوتر (مثل گیت‌هاب) ===== -->
+    <footer class="github-footer">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center text-md-start">
-                    <h5 class="text-white fw-bold">🚀 ALIBODAMA</h5>
-                    <p class="small opacity-75 mb-0">یاد بگیر. بساز. منتشر کن.</p>
+                    <a href="#" class="header-logo" style="font-size: 1.2rem;" id="brandLink2">
+                        <i class="fab fa-github"></i> ALIBODAMA
+                    </a>
+                    <p class="footer-copy mt-1">
+                        <i class="fas fa-gift me-1 text-primary"></i> اینجا همه چیز رایگانه
+                    </p>
                 </div>
-                <div class="col-md-4 text-center my-3 my-md-0">
-                    <a href="https://youtube.com/@alibodama" target="_blank" class="social-icon">
-                        <i class="bi bi-youtube"></i>
+                <div class="col-md-4 text-center my-3 my-md-0 footer-social">
+                    <a href="https://youtube.com/@alibodama" target="_blank" title="یوتیوب">
+                        <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="https://t.me/alibodama" target="_blank" class="social-icon">
-                        <i class="bi bi-telegram"></i>
+                    <a href="https://t.me/alibodama" target="_blank" title="تلگرام">
+                        <i class="fab fa-telegram"></i>
                     </a>
-                    <a href="https://github.com/alibodama" target="_blank" class="social-icon">
-                        <i class="bi bi-github"></i>
+                    <a href="https://twitter.com/alibodama" target="_blank" title="توییتر">
+                        <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-icon">
-                        <i class="bi bi-twitter-x"></i>
+                    <a href="https://github.com/alibodama" target="_blank" title="گیت‌هاب">
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
                 <div class="col-md-4 text-center text-md-end">
-                    <span class="small opacity-50">۱۴۰۴ © تمامی حقوق محفوظ است</span>
+                    <span class="footer-copy">
+                        <i class="far fa-copyright me-1"></i>
+                        تمامی حقوق محفوظ است
+                        <span class="year" id="currentYear">2026</span>
+                    </span>
                 </div>
             </div>
         </div>
@@ -501,55 +612,44 @@
     </script>
 
     <script>
+        // ===== سال میلادی جاری =====
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // ===== فعال‌سازی انیمیشن‌ها =====
         AOS.init({
-            duration: 700,
+            duration: 600,
             once: true,
             easing: 'ease-out-cubic'
         });
 
-        // ===== برگشت به بالای صفحه با کلیک روی اسم =====
-        // ۱. کلیک روی اسم در هدر
-        document.getElementById('brandLink').addEventListener('click', function(e) {
-            e.preventDefault();
+        // ===== برگشت به بالا با کلیک روی اسم =====
+        function scrollToTop(e) {
+            if (e) e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        }
 
-        // ۲. کلیک روی هر جایی که اسم نوشته شده (با کلاس .brand-name)
-        document.querySelectorAll('.brand-name').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
-
-        // ۳. کلیک روی هر لینکی که به #top ختم می‌شه
-        document.querySelectorAll('a[href="#top"]').forEach(el => {
-            el.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        });
+        document.getElementById('brandLink').addEventListener('click', scrollToTop);
+        document.getElementById('brandLink2').addEventListener('click', scrollToTop);
 
         // ===== دکمه بازگشت به بالا =====
-        const backBtn = document.getElementById('backToTop');
+        const backBtn = document.getElementById('backTop');
 
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 400) {
+            if (window.scrollY > 300) {
                 backBtn.classList.add('visible');
             } else {
                 backBtn.classList.remove('visible');
             }
         });
 
-        backBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        backBtn.addEventListener('click', scrollToTop);
 
-        // ===== نمایش پیام در کنسول =====
-        console.log('🚀 ALIBODAMA | نسخه سفید حرفه‌ای بارگذاری شد');
+        // ===== نمایش در کنسول =====
+        console.log('🚀 ALIBODAMA | طراحی شده مثل گیت‌هاب');
         console.log('📺 یوتیوب: https://youtube.com/@alibodama');
         console.log('📱 تلگرام: https://t.me/alibodama');
+        console.log('🐦 توییتر: https://twitter.com/alibodama');
+        console.log('🎁 همه چیز رایگان است!');
     </script>
 
 </body>
